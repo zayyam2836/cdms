@@ -387,7 +387,7 @@ function ChairmanDashboard() {
     incompleteProjects: 0,
     approvedBudget: 0
   })
-  const [recentComplaints, setRecentComplaints] = useState([])
+  const [recentComplaints, setRecentComplaints] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -426,7 +426,7 @@ function ChairmanDashboard() {
       
       // Get 3 most recent complaints
       const sortedComplaints = [...myComplaints]
-        .sort((a, b) => new Date(b.date_reported || 0) - new Date(a.date_reported || 0))
+        .sort((a, b) => new Date(b.date_reported || 0).getTime() - new Date(a.date_reported || 0).getTime())
         .slice(0, 3)
       
       setRecentComplaints(sortedComplaints)
