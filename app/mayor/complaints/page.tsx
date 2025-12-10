@@ -307,7 +307,7 @@ export default function MayorComplaintsPage() {
                     ))
                   ) : (
                     <tr>
-                      <td colSpan="6" className="py-12 text-center">
+                      <td colSpan={6} className="py-12 text-center">
                         <div className="text-gray-500">
                           <Search className="w-12 h-12 mx-auto mb-4 text-gray-300" />
                           <p className="text-lg">No complaints found</p>
