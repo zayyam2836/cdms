@@ -142,7 +142,7 @@ export default function ReportComplaintPage() {
                 />
               </div>
               
-              <div classname="mt-6">
+              <div className="mt-6">
                 <AISuggestions 
                   complaintDescription={formData.description}
                   category={formData.category}
