@@ -75,7 +75,11 @@ export default function ReportComplaintPage() {
       
     } catch (error) {
       console.error('Full error:', error)
-      alert(`Error: ${error.message}`)
+      if (error instanceof Error) {
+        alert(`Error: ${error.message}`)
+      } else {
+        alert(`Error: ${String(error)}`)
+      }
     } finally {
       setLoading(false)
     }
