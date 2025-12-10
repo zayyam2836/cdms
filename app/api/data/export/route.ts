@@ -7,7 +7,8 @@ export async function GET(request: NextRequest) {
     const format = searchParams.get('format') || 'csv'
     
     // Mock export data based on type
-    let data = []
+    type ExportRow = Record<string, string | number | boolean | null>;
+    let data: ExportRow[] = [];
     let filename = 'export'
     
     switch (type) {
