@@ -61,9 +61,10 @@ export default function AISuggestions({
         onSuggestionsGenerated(parsedSuggestions)
       }
 
-    } catch (err) {
+    } catch (err: unknown) {
       console.error('Error generating suggestions:', err)
-      setError(err.message || 'Something went wrong. Please try again.')
+      const message = err instanceof Error ? err.message : String(err)
+      setError(message || 'Something went wrong. Please try again.')
     } finally {
       setLoading(false)
     }
