@@ -4,7 +4,19 @@ import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import PageTransition from '@/components/PageTransition'
 import { HomeIcon, FileText, AlertCircle, CheckCircle } from 'lucide-react'
-
+interface Complaint {
+  complaint_id: number
+  chairman_id: number
+  uc_id: number
+  type_id: number
+  location_detail: string
+  description: string
+  severity: string
+  priority_id: number
+  estimated_cost: number
+  date_reported: string
+  status: string
+}
 export default function ChairmanDashboardPage() {
   const router = useRouter()
   const [stats, setStats] = useState({
@@ -15,7 +27,7 @@ export default function ChairmanDashboardPage() {
     myIncomplete: 0,
     approvedBudget: 0
   })
-  const [recentComplaints, setRecentComplaints] = useState([])
+  const [recentComplaints, setRecentComplaints] = useState<Complaint[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -38,7 +50,7 @@ export default function ChairmanDashboardPage() {
       const allComplaints = await response.json()
       
       // Filter for chairman_id = 1 (temporary)
-      const myComplaints = allComplaints.filter(c => c.chairman_id === 1)
+      const myComplaints = allComplaints.filter((c: Complaint) => c.chairman_id === 1)
       
       setStats({
         myComplaints: myComplaints.length,
