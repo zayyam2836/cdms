@@ -106,7 +106,7 @@ function MayorDashboard() {
     totalBudget: 2500000,
     allocatedBudget: 1800000
   })
-  const [recentComplaints, setRecentComplaints] = useState([])
+  const [recentComplaints, setRecentComplaints] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
