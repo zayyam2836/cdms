@@ -8,7 +8,7 @@ import { ArrowLeft, Search, Filter, Download, Eye, CheckCircle, XCircle } from '
 
 export default function MayorComplaintsPage() {
   const router = useRouter()
-  const [complaints, setComplaints] = useState<Complaint[]>([]);
+  const [complaints, setComplaints] = useState([]);
   const [filteredComplaints, setFilteredComplaints] = useState<Complaint[]>([]);
   const [loading, setLoading] = useState(true)
   const [searchTerm, setSearchTerm] = useState('')
