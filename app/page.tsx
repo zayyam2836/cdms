@@ -144,7 +144,7 @@ function MayorDashboard() {
       // Get 3 most recent PENDING complaints
       const pendingComplaints = allComplaints.filter(c => c.status === 'Pending')
       const sortedRecent = [...pendingComplaints]
-        .sort((a, b) => new Date(b.date_reported || 0) - new Date(a.date_reported || 0))
+        .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
         .slice(0, 3)
       
       setRecentComplaints(sortedRecent)
