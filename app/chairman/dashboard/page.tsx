@@ -63,7 +63,7 @@ export default function ChairmanDashboardPage() {
       
       // Sort by date, get recent 3
       const sorted = [...myComplaints].sort((a, b) => 
-        new Date(b.date_reported) - new Date(a.date_reported)
+        new Date(b.date_reported).getTime() - new Date(a.date_reported).getTime()
       )
       setRecentComplaints(sorted.slice(0, 3))
       
