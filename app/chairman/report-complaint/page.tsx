@@ -16,6 +16,7 @@ export default function ReportComplaintPage() {
     location_detail: '',
     description: '',
     severity: 'Low',
+    category: '',
     priority_id: 3, // medium
     estimated_cost: 0,
     uc_id: 1,
